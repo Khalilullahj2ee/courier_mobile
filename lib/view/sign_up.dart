@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:courier_mobile/helper/http_helper.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {
@@ -8,10 +8,120 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SignUp Page"),),
-      //body: const LoginPage(),
+        title: Text("SignUp Page"),
+      ),
+      body: const Registration(),
     );
   }
 }
+
+class Registration extends StatefulWidget {
+  const Registration({Key? key}) : super(key: key);
+
+  @override
+  _RegistrationState createState() => _RegistrationState();
+}
+
+class _RegistrationState extends State<Registration> {
+
+
+  final _fullname = TextEditingController();
+  final _email = TextEditingController();
+  final _phoneNumber = TextEditingController();
+  final _username = TextEditingController();
+  final _password = TextEditingController();
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(10),
+      child: ListView(
+        children: <Widget>[
+          Container(
+            alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+            child: const Text(
+                'User Registration From'
+                // style: TextStyle(
+                // color: Colors.teal,
+                // fontWeight: FontWeight.w500,
+                // fontSize: 30)
+          )),
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+              controller: _fullname,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Full Name',
+                icon: Icon(Icons.person),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+              controller: _email,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Email',
+                icon: Icon(Icons.email),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+              controller: _phoneNumber,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Phone Number',
+                icon: Icon(Icons.phone_android_outlined),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+             controller: _username,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Username',
+                icon: Icon(Icons.perm_contact_calendar_outlined),
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+              controller: _password,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Password',
+                icon: Icon(Icons.password),
+              ),
+            ),
+          ),
+          Container(
+              height: 50,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: ElevatedButton(
+                child: const Text('Submit'),
+                onPressed: () {
+                  HttpHelper _httper = new HttpHelper();
+                 // _httper.postData('http://localhost:9091/user_save', _body)
+                 // print(nameController.text);
+                 // print(passwordController.text);
+                },
+              )
+          ),
+        ],
+
+    )
+    );
+  }
+}
+
 
 

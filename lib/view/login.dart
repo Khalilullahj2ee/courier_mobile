@@ -1,7 +1,14 @@
 
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:courier_mobile/helper/http_helper.dart';
+import 'package:courier_mobile/models/login_model.dart';
 import 'package:courier_mobile/view/sign_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'admin_panel.dart';
 
 class AdminLogin extends StatefulWidget {
   const AdminLogin({Key? key}) : super(key: key);
@@ -31,8 +38,42 @@ class LoginPage extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<LoginPage> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
+
+  final _http = HttpHelper();
+
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future<void> userLogin() async {
+    String username = _usernameController.value.text;
+    String password = _passwordController.value.text;
+
+    var model = Login(username: username, password: password);
+
+    String _body = jsonEncode(model.toMap());
+
+    try {
+      final response =
+      await _http.postData('http://localhost:9091/login', _body);
+      print(response.toString());
+
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AdminPanal()));
+
+
+    } catch (e) {
+      log(e.toString());
+      // Fluttertoast.showToast(
+      //     msg: "$e",
+      //     toastLength: Toast.LENGTH_LONG,
+      //     gravity: ToastGravity.CENTER,
+      //     timeInSecForIosWeb: 1,
+      //     backgroundColor: Colors.red,
+      //     textColor: Colors.white,
+      //     fontSize: 16.0);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +101,7 @@ class _MyStatefulWidgetState extends State<LoginPage> {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
+                controller: _usernameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'User Name',
@@ -71,7 +112,7 @@ class _MyStatefulWidgetState extends State<LoginPage> {
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
+                controller: _passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
@@ -90,8 +131,9 @@ class _MyStatefulWidgetState extends State<LoginPage> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    print(_usernameController.text);
+                    print(_passwordController.text);
+                    userLogin();
                   },
                 )
             ),
