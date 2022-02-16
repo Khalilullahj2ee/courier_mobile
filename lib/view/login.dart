@@ -46,7 +46,7 @@ class _MyStatefulWidgetState extends State<LoginPage> {
                 child: const Text(
                   'Live Courier And Tracking Service',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.teal,
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
