@@ -7,6 +7,7 @@ import 'package:courier_mobile/models/login_model.dart';
 import 'package:courier_mobile/view/sign_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'admin_panel.dart';
 
@@ -54,23 +55,30 @@ class _MyStatefulWidgetState extends State<LoginPage> {
     String _body = jsonEncode(model.toMap());
 
     try {
-      final response =
-      await _http.postData('http://localhost:9091/login', _body);
+      final response = await _http.postData('http://localhost:9091/login', _body);
       print(response.toString());
+      Fluttertoast.showToast(
+          msg: "Login Sucsess",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 3,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
 
       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AdminPanal()));
 
 
     } catch (e) {
       log(e.toString());
-      // Fluttertoast.showToast(
-      //     msg: "$e",
-      //     toastLength: Toast.LENGTH_LONG,
-      //     gravity: ToastGravity.CENTER,
-      //     timeInSecForIosWeb: 1,
-      //     backgroundColor: Colors.red,
-      //     textColor: Colors.white,
-      //     fontSize: 16.0);
+      Fluttertoast.showToast(
+          msg: "Login Faild",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 3,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
     }
   }
 
@@ -131,9 +139,8 @@ class _MyStatefulWidgetState extends State<LoginPage> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    print(_usernameController.text);
-                    print(_passwordController.text);
                     userLogin();
+
                   },
                 )
             ),

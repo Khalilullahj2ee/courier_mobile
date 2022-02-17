@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:courier_mobile/helper/http_helper.dart';
+import 'package:courier_mobile/models/User_model.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -24,12 +29,52 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
 
+  final _http = HttpHelper();
 
   final _fullname = TextEditingController();
   final _email = TextEditingController();
   final _phoneNumber = TextEditingController();
   final _username = TextEditingController();
   final _password = TextEditingController();
+
+  Future<void> registration() async {
+    String _fullname = _password.value.text;
+    String _email = _password.value.text;
+    String _phoneNumber = _password.value.text;
+    String username = _username.value.text;
+    String password = _password.value.text;
+
+    var model =  UserModel( name: _fullname, email: _email, phone: _phoneNumber, username: username, password: password);
+
+    String _body = jsonEncode(model.toMap());
+
+    try {
+      final response = await _http.postData('http://localhost:9091/user_save', _body);
+      print(response.toString());
+      Fluttertoast.showToast(
+          msg: "User Save Sucsessfull",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 3,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AdminPanal()));
+
+
+    } catch (e) {
+      log(e.toString());
+      Fluttertoast.showToast(
+          msg: "User Save Faild",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 3,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
 
 
   @override
@@ -109,7 +154,8 @@ class _RegistrationState extends State<Registration> {
               child: ElevatedButton(
                 child: const Text('Submit'),
                 onPressed: () {
-                  HttpHelper _httper = new HttpHelper();
+                  registration();
+                  //HttpHelper _httper = new HttpHelper();
                  // _httper.postData('http://localhost:9091/user_save', _body)
                  // print(nameController.text);
                  // print(passwordController.text);

@@ -1,5 +1,4 @@
 class UserModel{
-  late int id;
   late String name;
   late String email;
   late String phone;
@@ -9,7 +8,6 @@ class UserModel{
 //<editor-fold desc="Data Methods">
 
   UserModel({
-    required this.id,
     required this.name,
     required this.email,
     required this.phone,
@@ -22,7 +20,6 @@ class UserModel{
       identical(this, other) ||
       (other is UserModel &&
           runtimeType == other.runtimeType &&
-          id == other.id &&
           name == other.name &&
           email == other.email &&
           phone == other.phone &&
@@ -31,7 +28,6 @@ class UserModel{
 
   @override
   int get hashCode =>
-      id.hashCode ^
       name.hashCode ^
       email.hashCode ^
       phone.hashCode ^
@@ -41,7 +37,6 @@ class UserModel{
   @override
   String toString() {
     return 'UserModel{' +
-        ' id: $id,' +
         ' name: $name,' +
         ' email: $email,' +
         ' phone: $phone,' +
@@ -51,7 +46,6 @@ class UserModel{
   }
 
   UserModel copyWith({
-    int? id,
     String? name,
     String? email,
     String? phone,
@@ -59,7 +53,6 @@ class UserModel{
     String? password,
   }) {
     return UserModel(
-      id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
       phone: phone ?? this.phone,
@@ -70,7 +63,6 @@ class UserModel{
 
   Map<String, dynamic> toMap() {
     return {
-      'id': this.id,
       'name': this.name,
       'email': this.email,
       'phone': this.phone,
@@ -79,20 +71,8 @@ class UserModel{
     };
   }
 
-  String toJson(){
-    return '{' +
-        ' id: $id,' +
-        ' name: $name,' +
-        ' email: $email,' +
-        ' phone: $phone,' +
-        ' username: $username,' +
-        ' password: $password,' +
-        '}';
-  }
-
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id'] as int,
       name: map['name'] as String,
       email: map['email'] as String,
       phone: map['phone'] as String,
