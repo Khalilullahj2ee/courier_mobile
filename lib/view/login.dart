@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+
 import 'admin_panel.dart';
 
 class AdminLogin extends StatefulWidget {
@@ -55,13 +56,13 @@ class _MyStatefulWidgetState extends State<LoginPage> {
     String _body = jsonEncode(model.toMap());
 
     try {
-      final response = await _http.postData('http://localhost:9091/login', _body);
-      print(response.toString());
+      //final response = await _http.postData('http://localhost:9091/login', _body);
+     // print(response.toString());
       Fluttertoast.showToast(
           msg: "Login Sucsess",
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 3,
+          timeInSecForIosWeb:2,
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
