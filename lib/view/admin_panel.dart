@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'body.dart';
+
 class AdminPanal extends StatefulWidget {
   const AdminPanal({Key? key}) : super(key: key);
 
@@ -75,8 +77,13 @@ class SearchPage extends StatelessWidget {
               ),
             ),
           )),
+      body: const TrackingView(),
     );
   }
+
+
+
+
 }
     // return Card(
     //   child: Column(
