@@ -6,8 +6,9 @@ import 'package:http/http.dart';
 import 'http_exception.dart';
 
 class HttpHelper {
-  Future<dynamic> getData(url) async {
+  Future<dynamic> getData(_url) async {
     var responseJson;
+    Uri url = Uri.parse(_url);
     try {
       //ToDo: add token
       var headers = {
