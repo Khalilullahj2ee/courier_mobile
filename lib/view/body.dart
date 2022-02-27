@@ -30,7 +30,7 @@ class _TrackingViewState extends State<TrackingView> {
 
   @override
   Widget build(BuildContext context) {
-    return new Card(
+    return  Card(
       color: Colors.white70,
       child: new Container(
         padding: EdgeInsets.all(10.0),

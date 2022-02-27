@@ -16,7 +16,7 @@ class HttpHelper {
         'Authorization': 'Bearer '
       };
       final response = await get(url, headers: headers);
-      responseJson = _returnResponse(response);
+      responseJson = response;
     } on SocketException {
       print('No net');
       throw FetchDataException('No Internet connection');
@@ -34,7 +34,7 @@ class HttpHelper {
         'Authorization': 'Bearer '
       };
       final response = await post(url, headers: headers, body: _body);
-      responseJson = _returnResponse(response);
+      responseJson = response;
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
