@@ -139,7 +139,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       )),
                       new Expanded(
-                        child: new Text("ghfhgfh",
+                        child: new Text(trackingOrder.trackingNum,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
@@ -158,7 +158,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       )),
                       new Expanded(
-                        child: new Text("",
+                        child: new Text(trackingOrder.receiveName,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
@@ -177,7 +177,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       )),
                       new Expanded(
-                        child: new Text("",
+                        child: new Text(trackingOrder.receiverPhon,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
@@ -196,7 +196,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       )),
                       new Expanded(
-                        child: new Text("",
+                        child: new Text(trackingOrder.contents,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
@@ -216,7 +216,7 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                       )),
                       new Expanded(
-                        child: new Text("",
+                        child: new Text(trackingOrder.status,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25,
