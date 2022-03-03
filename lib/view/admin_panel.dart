@@ -87,7 +87,7 @@ class _SearchPageState extends State<SearchPage> {
                       String trackingNum = _trackingNumController.text;
                       httphelper
                           .getData(
-                              "http://localhost:9091/search/" + trackingNum)
+                              "http://192.168.1.86:9091/search/" + trackingNum)
                           .then((res) {
                         print(res.body);
                         Map<String, dynamic> map = jsonDecode(res.body);
