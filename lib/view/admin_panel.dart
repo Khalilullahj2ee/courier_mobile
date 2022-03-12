@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+import '../bottom_navigation_bar.dart';
 import 'body.dart';
 
 class AdminPanal extends StatefulWidget {
@@ -23,6 +24,7 @@ class _AdminPanalState extends State<AdminPanal> {
       //
       // title: Text("Order Tracking"),),
       body: const Dashboard(),
+
     );
   }
 }
@@ -48,13 +50,15 @@ class _DashboardState extends State<Dashboard> {
           // icon: Icon(Icons.search))
         ],
       ),
-      body: const SearchPage(),
+      body: const SearchPage(
+        bottom_navigation_bar: BottomBar(),
+      ),
     );
   }
 }
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({Key? key, required BottomBar bottom_navigation_bar}) : super(key: key);
 
   @override
   _SearchPageState createState() => _SearchPageState();

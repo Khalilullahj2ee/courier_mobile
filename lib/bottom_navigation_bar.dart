@@ -1,3 +1,4 @@
+import 'package:courier_mobile/view/admin_panel.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class BottomBar extends StatelessWidget {
         buttonBackgroundColor: Colors.white60,
         animationCurve: Curves.easeInOut,
         animationDuration: Duration(milliseconds: 600),
-        onTap: (index) {
+        onTap: (index) {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AdminPanal()));
 
           //Handle button tap
         },

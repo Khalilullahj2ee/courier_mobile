@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 
+import '../bottom_navigation_bar.dart';
 import 'admin_panel.dart';
 
 class AdminLogin extends StatefulWidget {
@@ -68,7 +69,7 @@ class _MyStatefulWidgetState extends State<LoginPage> {
             textColor: Colors.white,
             fontSize: 16.0);
 
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AdminPanal()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>BottomBar()));
       }
 
 
