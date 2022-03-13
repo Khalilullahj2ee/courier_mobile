@@ -15,6 +15,7 @@ class BottomBar extends StatelessWidget {
           Icon(Icons.add, size: 20),
           Icon(Icons.home, size: 20),
           Icon(Icons.compare_arrows, size: 20),
+          Icon(Icons.perm_contact_cal_outlined, size: 20),
         ],
         color: Colors.white,
         height: 45.0,
