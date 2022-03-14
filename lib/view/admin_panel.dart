@@ -51,14 +51,13 @@ class _DashboardState extends State<Dashboard> {
         ],
       ),
       body: const SearchPage(
-        bottom_navigation_bar: BottomBar(),
       ),
     );
   }
 }
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key, required BottomBar bottom_navigation_bar}) : super(key: key);
+  const SearchPage({Key? key, required}) : super(key: key);
 
   @override
   _SearchPageState createState() => _SearchPageState();

@@ -69,7 +69,7 @@ class _MyStatefulWidgetState extends State<LoginPage> {
             textColor: Colors.white,
             fontSize: 16.0);
 
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>BottomBar()));
+       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>BottomBar()));
       }
 
 

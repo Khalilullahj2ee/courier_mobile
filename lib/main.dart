@@ -1,10 +1,12 @@
 import 'package:courier_mobile/view/login.dart';
 import 'package:flutter/material.dart';
 
+import 'bottom_navigation_bar.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: AdminLogin(),
+    home: Bottom_bar(),
 
   ),
   );
