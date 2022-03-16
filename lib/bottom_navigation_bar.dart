@@ -50,7 +50,7 @@ class _MyApp extends State {
           ],
           onChange: _handleNavigationChange,
           style: FluidNavBarStyle(
-              barBackgroundColor: Colors.deepPurpleAccent,
+              barBackgroundColor: Colors.blue,
               iconSelectedForegroundColor: Colors.white,
               iconUnselectedForegroundColor: Colors.white70),
           scaleFactor: 1.5,

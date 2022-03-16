@@ -64,7 +64,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  var trackingOrder = TrackingOrder() ;
+  var trackingOrder = TrackingOrder();
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +79,10 @@ class _SearchPageState extends State<SearchPage> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.youtube_searched_for),
+                      hintText: 'Enter Your Tracking Number'
+                    ),
                     controller: _trackingNumController,
                   ),
                 ),
