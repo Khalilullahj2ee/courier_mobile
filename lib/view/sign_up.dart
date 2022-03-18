@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:courier_mobile/helper/httpAPI.dart';
 import 'package:courier_mobile/helper/http_helper.dart';
 import 'package:courier_mobile/models/User_model.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _RegistrationState extends State<Registration> {
     String _body = jsonEncode(model.toMap());
 
     try {
-      final response = await _http.postData('http://localhost:9091/user_save', _body);
+      final response = await _http.postData(UserApi, _body);
       print(response.toString());
       Fluttertoast.showToast(
           msg: "User Save Sucsessfull",

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:courier_mobile/helper/httpAPI.dart';
 import 'package:courier_mobile/helper/http_helper.dart';
 import 'package:courier_mobile/models/tracking_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -93,8 +94,7 @@ class _SearchPageState extends State<SearchPage> {
 
                       String trackingNum = _trackingNumController.text;
                       httphelper
-                          .getData(
-                              "http://192.168.1.86:9091/search/" + trackingNum)
+                          .getData(orderTracking+"/"+trackingNum)
                           .then((res) {
                         print(res.body);
                         Map<String, dynamic> map = jsonDecode(res.body);

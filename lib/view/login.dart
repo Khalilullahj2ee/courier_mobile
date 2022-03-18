@@ -2,8 +2,10 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:courier_mobile/helper/httpAPI.dart';
 import 'package:courier_mobile/helper/http_helper.dart';
 import 'package:courier_mobile/models/login_model.dart';
+import 'package:courier_mobile/view/profile.dart';
 import 'package:courier_mobile/view/sign_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,8 +59,9 @@ class _MyStatefulWidgetState extends State<LoginPage> {
     String _body = jsonEncode(model.toMap());
 
     try {
-      final response = await _http.postData('http://192.168.1.86:9091/login', _body);
+      final response = await _http.postData(loginApi, _body);
       if(response.statusCode==200){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Profile()));
         print(response.toString());
         Fluttertoast.showToast(
             msg: "Login Sucsess",
@@ -69,7 +72,7 @@ class _MyStatefulWidgetState extends State<LoginPage> {
             textColor: Colors.white,
             fontSize: 16.0);
 
-       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>BottomBar()));
+
       }
 
 
