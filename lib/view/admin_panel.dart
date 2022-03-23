@@ -9,6 +9,7 @@ import 'package:http/http.dart';
 
 import '../bottom_navigation_bar.dart';
 import 'body.dart';
+import 'drawer.dart';
 
 class AdminPanal extends StatefulWidget {
   const AdminPanal({Key? key}) : super(key: key);
@@ -41,6 +42,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: HomepageDrawer(),
       appBar: AppBar(
         title: Text('Order Tracking'),
         actions: [
